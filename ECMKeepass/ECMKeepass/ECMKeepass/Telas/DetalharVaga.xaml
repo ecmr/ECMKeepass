@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ECMKeepass.Telas.DetalharVaga">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="{Binding Titulo}" FontSize="18" HorizontalOptions="Center" FontAttributes="Bold" TextColor="SkyBlue" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Grupo: "  WidthRequest="55" HorizontalTextAlignment="End" FontAttributes="Bold"/>
+                <Entry IsEnabled="False" Text="{Binding GrupoNome}" HorizontalOptions="Center" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Usuário: " HorizontalTextAlignment="End" FontAttributes="Bold"/>
+                <Entry IsEnabled="False" Text="{Binding Usuario}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Senha: " HorizontalTextAlignment="End" WidthRequest="55" FontAttributes="Bold" />
+                <Entry x:Name="Senha" Text="{Binding Senha}" IsEnabled="False" IsPassword="True" HorizontalOptions="FillAndExpand" />
+                <Switch x:Name="VisualizarSenha" Toggled="switcher_Toggled" WidthRequest="45" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Url: " HorizontalTextAlignment="End"  WidthRequest="55" FontAttributes="Bold"/>
+                <Entry IsEnabled="False" Text="{Binding Url}" />
+            </StackLayout>
+            <Label Text="   Comentario: "  FontAttributes="Bold"/>
+            <Entry IsEnabled="False" Text="{Binding Comentario}" HeightRequest="200" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

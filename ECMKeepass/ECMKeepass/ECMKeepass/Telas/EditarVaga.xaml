@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ECMKeepass.Telas.EditarVaga">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Entry x:Name="GrupoNome" Placeholder="Grupo" />
+                <Entry x:Name="Titulo" Placeholder="Título" />
+                <Entry x:Name="Usuario" Placeholder="Usuário" />
+
+                <StackLayout Orientation="Horizontal" >
+                    <Entry x:Name="Senha" Placeholder="Senha" IsPassword="True" HorizontalOptions="FillAndExpand" />
+                    <Label x:Name="lblVisualizar" Text="Ver" />
+                    <Switch x:Name="VisualizarSenha" Toggled="switcher_Toggled" WidthRequest="45" />
+                </StackLayout>
+                <Entry x:Name="Url" Placeholder="Url" />
+                <Label Text="Comentário" />
+                <Editor x:Name="Comentario" HeightRequest="200" />
+
+                <Button Text="Salvar" Clicked="SalvarAction"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ECMKeepass.Telas.Consultar">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Keepass ECM - " FontSize="24" />
+                <Label Text="Pesquisar" FontSize="24" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Adicionar" Clicked="GoCadastro" />
+                <Button Text="Minhas senhas" Clicked="GoMinhasSenhas" />
+            </StackLayout>
+            <Entry Placeholder="Pesquisar" TextChanged="PesquisarAction"/>
+            <Label Text="" x:Name="lblCount" FontAttributes="Bold" />
+            <ListView x:Name="ListaSenhas" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid HeightRequest="30" RowSpacing="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Grid.ColumnSpan="2" Height="Auto" ></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding GrupoNome}"  Grid.Column="0">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="MaisDetalheAction" CommandParameter="{Binding .}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
