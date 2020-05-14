@@ -15,6 +15,26 @@ namespace ECMKeepass.Banco
             var dep = DependencyService.Get<ICaminho>();
             _conexao = new SQLiteConnection(dep.ObterCaminho("database.sqlite"));
             _conexao.CreateTable<keepass>();
+            _conexao.CreateTable<UserAcess>();
+        }
+
+        public List<UserAcess> ConsultarPrimeiroAcesso()
+        {
+            return _conexao.Table<UserAcess>().ToList();
+        }
+
+        public bool PequisaUsuario(UserAcess useracess)
+        {
+            UserAcess user = _conexao.Table<UserAcess>().Where(ua => ua.Usuario.Contains(useracess.Usuario)).Where(ua => ua.Senha.Contains(useracess.Senha)).FirstOrDefault();
+            if (user != null)
+                return true;
+            else
+                return false;
+        }
+
+        public void CadastroPrimeiroACesso(UserAcess user)
+        {
+            _conexao.Insert(user);
         }
 
         public List<keepass> Consultar()

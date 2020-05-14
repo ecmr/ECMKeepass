@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ECMKeepass.Telas.Grupos">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="10,0,0,0">
             <StackLayout Orientation="Horizontal">
                 <Label Text="Keepass ECM - " FontSize="24" />
                 <Label Text="Grupos" FontSize="24" />

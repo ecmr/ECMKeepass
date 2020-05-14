@@ -132,6 +132,8 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="icon.png" />
+    <Content Include="icon_login.png" />
+    <Content Include="ic_ecm_MKP.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>

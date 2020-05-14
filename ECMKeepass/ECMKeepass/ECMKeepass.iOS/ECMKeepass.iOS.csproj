@@ -164,4 +164,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_ecm_MKP.png" />
+  </ItemGroup>
 </Project>
