@@ -9,22 +9,30 @@ using Xamarin.Forms.Xaml;
 namespace ECMKeepass.Telas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Consultar : ContentPage
+	public partial class Grupo : ContentPage
 	{
+
         List<keepass> Lista { get; set; }
         List<keepass> Lista2 = new List<keepass>();
 
-        public Consultar()
-        {
-            InitializeComponent();
+        public Grupo (keepass keepass)
+		{
+			InitializeComponent ();
+
+            BindingContext = keepass;
 
             Database database = new Database();
-            Lista = database.Consultar();
+            Lista = database.Consultar().Where(g => g.GrupoNome.Contains(keepass.GrupoNome)).ToList();
 
-            ListaSenhas.ItemsSource = Lista;
+            foreach (keepass GroupPass in Lista)
+            {
+                    Lista2.Add(GroupPass);
+            }
 
-            lblCount.Text = "Grupos: " + Lista.Count.ToString();
+            ListaSenhas.ItemsSource = null;
+            ListaSenhas.ItemsSource = Lista2;
 
+            lblNomeGrupo.Text = keepass.GrupoNome.ToString();
         }
 
         public void GoCadastro(object sender, EventArgs args)
@@ -50,5 +58,16 @@ namespace ECMKeepass.Telas
         {
             ListaSenhas.ItemsSource = Lista.Where(a => a.Titulo.Contains(args.NewTextValue)).ToList();
         }
+
+        void OnDeleteClicked(object sender, EventArgs e)
+        {
+            MenuItem item = sender as MenuItem;
+         }
+
+        void OnEditClicked(object sender, EventArgs e)
+        {
+            MenuItem item = sender as MenuItem;
+        }
+
     }
 }

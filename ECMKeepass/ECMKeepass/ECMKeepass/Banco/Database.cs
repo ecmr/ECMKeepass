@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ECMKeepass.Modelo;
 using SQLite;
-using ECMKeepass.Modelo;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace ECMKeepass.Banco
 {
-    
+
     class Database
     {
         private SQLiteConnection _conexao;

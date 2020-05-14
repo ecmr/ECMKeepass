@@ -19,6 +19,7 @@
                 <Editor x:Name="Comentario" HeightRequest="200" />
 
                 <Button Text="Salvar" Clicked="SalvarAction"/>
+                <Button Text="Excluir" Clicked="ExcluirAction"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

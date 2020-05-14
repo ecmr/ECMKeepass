@@ -12,7 +12,7 @@ namespace ECMKeepass
             InitializeComponent();
 
             //MainPage = new MainPage();
-            MainPage = new NavigationPage(new ECMKeepass.Telas.Consultar());
+            MainPage = new NavigationPage(new ECMKeepass.Telas.Grupos());
         }
 
         protected override void OnStart()

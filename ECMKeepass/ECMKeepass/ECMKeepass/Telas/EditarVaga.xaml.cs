@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using ECMKeepass.Banco;
+using ECMKeepass.Modelo;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using ECMKeepass.Banco;
-using ECMKeepass.Modelo;
 
 namespace ECMKeepass.Telas
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EditarVaga : ContentPage
 	{
         private keepass keepass { get; set; }
+
         public EditarVaga(keepass keepass)
         {
             InitializeComponent();
@@ -44,9 +40,16 @@ namespace ECMKeepass.Telas
             App.Current.MainPage = new NavigationPage(new MinhasVagasCadastradas());
         }
 
+        public void ExcluirAction(object sender, EventArgs args)
+        {
+            Database database = new Database();
+            database.Exclusao(keepass);
+
+            App.Current.MainPage = new NavigationPage(new MinhasVagasCadastradas());
+        }
+
         void switcher_Toggled(object sender, ToggledEventArgs e)
         {
-            //lblVisualizar.Text = String.Format("Switch is now {0}", e.Value);
             Senha.IsPassword = !e.Value;
         }
     }
