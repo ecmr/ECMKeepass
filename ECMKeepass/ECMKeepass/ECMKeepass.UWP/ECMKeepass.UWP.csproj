@@ -134,6 +134,8 @@
     <Content Include="icon.png" />
     <Content Include="icon_login.png" />
     <Content Include="ic_ecm_MKP.png" />
+    <Content Include="ic_generatorPW.jpg" />
+    <Content Include="ic_newPassWord.jpg" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>

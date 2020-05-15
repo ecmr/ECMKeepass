@@ -3,24 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ECMKeepass.Telas.EditarVaga">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <Entry x:Name="GrupoNome" Placeholder="Grupo" />
-                <Entry x:Name="Titulo" Placeholder="Título" />
-                <Entry x:Name="Usuario" Placeholder="Usuário" />
-
-                <StackLayout Orientation="Horizontal" >
-                    <Entry x:Name="Senha" Placeholder="Senha" IsPassword="True" HorizontalOptions="FillAndExpand" />
-                    <Label x:Name="lblVisualizar" Text="Ver" />
-                    <Switch x:Name="VisualizarSenha" Toggled="switcher_Toggled" WidthRequest="45" />
-                </StackLayout>
-                <Entry x:Name="Url" Placeholder="Url" />
-                <Label Text="Comentário" />
-                <Editor x:Name="Comentario" HeightRequest="200" />
-
-                <Button Text="Salvar" Clicked="SalvarAction"/>
-                <Button Text="Excluir" Clicked="ExcluirAction"/>
+        <StackLayout Margin="10,0,0,0" Padding="20">
+            <Button x:Name="btnEditar" Text="Salvar" Clicked="EditarCadastro" FontAttributes="Bold" BackgroundColor="LightSkyBlue" />
+            <Button x:Name="btnExcluir" Text="Excluir" Clicked="ExcluirAction" BackgroundColor="PaleVioletRed" TextColor="Black" FontAttributes="Bold" />
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="lblTituloEditar" Text="Título: " IsVisible="False"  WidthRequest="55" HorizontalTextAlignment="End" FontAttributes="Bold"/>
+                <Entry x:Name="Titulo" Text="{Binding Titulo}" HorizontalOptions="FillAndExpand" />
             </StackLayout>
-        </ScrollView>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Grupo: "  WidthRequest="55" HorizontalTextAlignment="End" FontAttributes="Bold"/>
+                <Entry x:Name="GrupoNome" Text="{Binding GrupoNome}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Usuário: " HorizontalTextAlignment="End" FontAttributes="Bold"/>
+                <Entry x:Name="Usuario" HorizontalOptions="FillAndExpand" Text="{Binding Usuario}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Senha: " HorizontalTextAlignment="End" WidthRequest="55" FontAttributes="Bold" />
+                <Entry x:Name="Senha" Text="{Binding Senha}" IsPassword="True" HorizontalOptions="FillAndExpand" />
+                <Switch x:Name="VerSenha" Toggled="switcher_Toggled" WidthRequest="45" />
+                <ImageButton Source="ic_newPassWord.jpg" Clicked="GerarSenha" WidthRequest="45" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Url: " HorizontalTextAlignment="End"  WidthRequest="55" FontAttributes="Bold"/>
+                <Entry x:Name="Url" Text="{Binding Url}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+            <Label Text="   Comentario: "  FontAttributes="Bold"/>
+            <Editor x:Name="Comentario" Text="{Binding Comentario}" Placeholder="Digite seu comentário"
+            AutoSize="TextChanges" HeightRequest="200" MaxLength="400" IsSpellCheckEnabled="false" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

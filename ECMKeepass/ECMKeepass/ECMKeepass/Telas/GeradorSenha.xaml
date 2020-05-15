@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ECMKeepass.Telas.GeradorSenha">
+    <ContentPage.Content>
+        <StackLayout Margin="10,0,0,0" Padding="20">
+            <Label x:Name="lblTitulo" Text="Gerador de Senha" FontSize="18" HorizontalOptions="Center" FontAttributes="Bold" TextColor="SkyBlue" />
+            <Label x:Name="lblTituloKeep" Text="" IsVisible="False" />
+            <Button x:Name="btnUtilizar" Text="Usar esta" Clicked="Utilizar" FontAttributes="Bold" BackgroundColor="LightSkyBlue" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Senha: " HorizontalTextAlignment="End" WidthRequest="55" FontAttributes="Bold" />
+                <Entry x:Name="txtSenha" Text="" IsPassword="False" HorizontalOptions="FillAndExpand" WidthRequest="30"  />
+                <ImageButton Source="ic_generatorPW.jpg" Clicked="Gerar" WidthRequest="30"  />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

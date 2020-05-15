@@ -170,4 +170,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\ic_ecm_MKP.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_newPassWord.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_generatorPW.jpg" />
+  </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@ using ECMKeepass.Banco;
 using ECMKeepass.Modelo;
 using System;
 using System.Linq;
+using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,64 +26,37 @@ namespace ECMKeepass.Telas
 
         public void EditarCadastro(object sender, EventArgs args)
         {
-            if (btnEditar.Text == "Editar")
-            {
-                btnEditar.Text = "Salvar";
-                lblTitulo.IsVisible = false;
-                Titulo.IsEnabled = true;
-                lblTituloEditar.IsVisible = true;
-                Titulo.IsVisible = true;
-                GrupoNome.IsEnabled = true;
-                Usuario.IsEnabled = true;
-                Senha.IsEnabled = true;
-                Url.IsEnabled = true;
-                Comentario.IsEnabled = true;
-            }
-            else
-            {
-                SalvarDados();
-                lblTitulo.IsVisible = true;
-                Titulo.IsEnabled = false;
-                lblTituloEditar.IsVisible = false;
-                Titulo.IsVisible = false;
-                GrupoNome.IsEnabled = false;
-                Usuario.IsEnabled = false;
-                Senha.IsEnabled = false;
-                Url.IsEnabled = false;
-                Comentario.IsEnabled = false;
-                btnEditar.Text = "Editar";
-            }
-
-        }
-
-        public void ExcluirAction(object sender, EventArgs args)
-        {
-
             Database database = new Database();
             keepass kp = database.Pesquisar(lblTitulo.Text).FirstOrDefault();
-            database.Exclusao(kp);
 
-            App.Current.MainPage = new NavigationPage(new Grupos());
+            Navigation.PushAsync(new EditarVaga(kp));
         }
 
         private void SalvarDados()
         {
-            keepass keepass = new keepass();
-            keepass.GrupoNome = GrupoNome.Text;
-            keepass.Titulo = Titulo.Text;
-            keepass.Usuario = Usuario.Text;
-            keepass.Senha = Senha.Text;
-            keepass.Url = Url.Text;
-            keepass.Comentario = Comentario.Text;
 
-            Database database = new Database();
-            keepass kp = database.Pesquisar(lblTitulo.Text).FirstOrDefault();
-            database.Exclusao(kp);
-            database = null;
-            database = new Database();
-            database.Cadastro(keepass);
 
-            App.Current.MainPage = new NavigationPage(new Grupo(keepass));
+           // App.Current.MainPage = new NavigationPage(new Grupo(keepass));
+        }
+
+        public string NewPassWord(int tamanho, bool UpCase, bool LoCase, bool Digitos, bool SpChars)
+        {
+            string validar = "abcdefghijklmnozABCDEFGHIJKLMNOZ1234567890@#$%&*!";
+            try
+            {
+                StringBuilder strbld = new StringBuilder(100);
+                Random random = new Random();
+                while (0 < tamanho--)
+                {
+                    strbld.Append(validar[random.Next(validar.Length)]);
+                }
+                return strbld.ToString();
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Erro", ex.Message, "Cancelar");
+            }
+            return "1q2w3e4r";
         }
     }
 }

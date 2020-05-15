@@ -6,7 +6,6 @@
         <StackLayout Margin="10,0,0,0" Padding="20">
             <Label x:Name="lblTitulo" Text="{Binding Titulo}" FontSize="18" HorizontalOptions="Center" FontAttributes="Bold" TextColor="SkyBlue" />
             <Button x:Name="btnEditar" Text="Editar" Clicked="EditarCadastro" FontAttributes="Bold" BackgroundColor="LightSkyBlue" />
-            <Button x:Name="btnExcluir" Text="Excluir" Clicked="ExcluirAction" BackgroundColor="PaleVioletRed" TextColor="Black" FontAttributes="Bold" />
             <StackLayout Orientation="Horizontal">
                 <Label x:Name="lblTituloEditar" Text="Título: " IsVisible="False"  WidthRequest="55" HorizontalTextAlignment="End" FontAttributes="Bold"/>
                 <Entry x:Name="Titulo" IsVisible="False" Text="{Binding Titulo}" HorizontalOptions="FillAndExpand" />
