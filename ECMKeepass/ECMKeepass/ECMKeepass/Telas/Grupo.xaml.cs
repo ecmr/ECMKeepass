@@ -22,17 +22,17 @@ namespace ECMKeepass.Telas
             BindingContext = keepass;
 
             Database database = new Database();
-            Lista = database.Consultar().Where(g => g.GrupoNome.Contains(keepass.GrupoNome)).ToList();
+            //Lista = database.Consultar().Where(g => g.GrupoNome.Contains(keepass.GrupoNome)).ToList();
 
-            foreach (keepass GroupPass in Lista)
-            {
-                    Lista2.Add(GroupPass);
-            }
+            //foreach (keepass GroupPass in Lista)
+            //{
+            //        Lista2.Add(GroupPass);
+            //}
 
-            ListaSenhas.ItemsSource = null;
-            ListaSenhas.ItemsSource = Lista2;
+            //ListaSenhas.ItemsSource = null;
+            //ListaSenhas.ItemsSource = Lista2;
 
-            lblNomeGrupo.Text = keepass.GrupoNome.ToString();
+//            lblNomeGrupo.Text = keepass.GrupoNome.ToString();
         }
 
         public void GoCadastro(object sender, EventArgs args)
@@ -42,7 +42,7 @@ namespace ECMKeepass.Telas
 
         public void GoMinhasSenhas(object sender, EventArgs args)
         {
-            Navigation.PushAsync(new MinhasVagasCadastradas());
+            //Navigation.PushAsync(new MinhasVagasCadastradas());
         }
 
         public void MaisDetalheAction(object sender, EventArgs args)
@@ -51,7 +51,7 @@ namespace ECMKeepass.Telas
             TapGestureRecognizer tapGest = (TapGestureRecognizer)lblDetalhe.GestureRecognizers[0];
             keepass keep = tapGest.CommandParameter as keepass;
 
-            Navigation.PushAsync(new DetalharVaga(keep));
+            Navigation.PushAsync(new Detalhar(keep));
         }
 
         public void PesquisarAction(object sender, TextChangedEventArgs args)

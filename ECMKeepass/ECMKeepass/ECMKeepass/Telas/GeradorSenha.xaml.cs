@@ -47,7 +47,7 @@ namespace ECMKeepass.Telas
             Database database = new Database();
             keepass kp = database.Pesquisar(lblTituloKeep.Text).FirstOrDefault();
             kp.Senha = txtSenha.Text;
-            Navigation.PushAsync(new EditarVaga(kp));
+            Navigation.PushAsync(new Editar(kp));
         }
     }
 }

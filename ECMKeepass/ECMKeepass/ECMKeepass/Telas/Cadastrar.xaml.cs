@@ -22,7 +22,6 @@ namespace ECMKeepass.Telas
         public void SalvarAction(object sender, EventArgs args)
         {
             keepass keepass = new keepass();
-            keepass.GrupoNome = GrupoNome.Text;
             keepass.Titulo = Titulo.Text;
             keepass.Usuario = Usuario.Text;
             keepass.Senha = Senha.Text;
@@ -32,7 +31,7 @@ namespace ECMKeepass.Telas
             Database database = new Database();
             database.Cadastro(keepass);
 
-            App.Current.MainPage = new NavigationPage(new Grupo(keepass));
+            Navigation.PushAsync(new Grupo(keepass));
         }
     }
 }

@@ -13,34 +13,44 @@ namespace ECMKeepass.Telas
 	public partial class Grupos : ContentPage
 	{
 
-        List<keepass> Lista { get; set; }
-        List<keepass> ListaAgrupada { get; set; }
-        List<keepass> Lista2 = new List<keepass>();
+        //List<keepass> Lista { get; set; }
+        //List<keepass> ListaAgrupada { get; set; }
+        //List<keepass> Lista2 = new List<keepass>();
+        List<KeepGroup> grupos { get; set; }
+        List<KeepGroup> Lista2 = new List<KeepGroup>();
 
         public Grupos ()
 		{
 			InitializeComponent ();
 
             Database database = new Database();
-            Lista = database.Consultar();
-
-            foreach (keepass GroupPass in Lista)
-            {
-                List<keepass> keepassItem = Lista2.Where(g => g.GrupoNome.Contains(GroupPass.GrupoNome)).ToList();
-                if (keepassItem.Count() < 1)
-                    Lista2.Add(new keepass() { Id = GroupPass.Id, GrupoNome = GroupPass.GrupoNome });
-            }
-
-            ListaSenhas.ItemsSource = Lista2;
+            grupos = database.Listar();
+            BindingContext = grupos;
+            ListaSenhas.ItemsSource = grupos;
         }
 
-
+        //TODO: REVER
         public void GoCadastro(object sender, EventArgs args)
         {
-            Navigation.PushAsync(new Cadastrar());
+            Navigation.PushAsync(new CadastrarGrupo());
         }
 
-        public void MaisDetalheAction(object sender, EventArgs args)
+        public void GoExcluir(object sender, EventArgs args)
+        {
+            Database database = new Database();
+            Label GrupoId = (Label)sender;
+            TapGestureRecognizer tapGest = (TapGestureRecognizer)GrupoId.GestureRecognizers[0];
+            KeepGroup kg = tapGest.CommandParameter as KeepGroup;
+
+            database.ExclusaoGrupo(kg);
+
+            Navigation.PushAsync(new Grupos());
+
+        }
+
+
+        //TODO: REVER
+        public void GarregarLista(object sender, EventArgs args)
         {
             Label lblDetalhe = (Label)sender;
             TapGestureRecognizer tapGest = (TapGestureRecognizer)lblDetalhe.GestureRecognizers[0];
@@ -51,7 +61,7 @@ namespace ECMKeepass.Telas
 
         public void PesquisarAction(object sender, TextChangedEventArgs args)
         {
-            ListaSenhas.ItemsSource = Lista.Where(a => a.Titulo.Contains(args.NewTextValue)).ToList();
+            ListaSenhas.ItemsSource = grupos.Where(a => a.GrupoNome.Contains(args.NewTextValue)).ToList();
         }
     }
 }

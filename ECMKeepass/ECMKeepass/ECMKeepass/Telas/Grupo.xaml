@@ -3,13 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ECMKeepass.Telas.Grupo">
     <ContentPage.Content>
-        <StackLayout Margin="10,0,0,0">
+        <StackLayout Margin="20,35,20,20">
             <StackLayout Orientation="Horizontal">
                 <Label Text="Keepass ECM" FontSize="24" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Adicionar" Clicked="GoCadastro" />
-                <Button Text="Minhas senhas" Clicked="GoMinhasSenhas" />
             </StackLayout>
             <Entry Placeholder="Pesquisar" TextChanged="PesquisarAction"/>
             <Label Text="" x:Name="lblNomeGrupo" FontAttributes="Bold" />
@@ -19,14 +18,18 @@
                         <ViewCell>
                             <Grid HeightRequest="30" RowSpacing="10">
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="20" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" ></RowDefinition>
                                     <RowDefinition Grid.ColumnSpan="2" Height="Auto" ></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image Source="icon.png" />
-                                <Label Text="{Binding Titulo}"  Grid.Column="0">
+                                <Image Source="ic_folder_cadeado.jpg" Grid.Column="0" WidthRequest="20" HeightRequest="20" />
+                                <Image Source="icon.png" Grid.Column="1" HorizontalOptions="Center" />
+                                <Label Text="{Binding Titulo}"  Grid.Column="1">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="MaisDetalheAction" CommandParameter="{Binding .}" />
                                     </Label.GestureRecognizers>

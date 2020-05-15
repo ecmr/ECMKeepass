@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace ECMKeepass.Telas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class DetalharVaga : ContentPage
+	public partial class Detalhar : ContentPage
 	{
-        public DetalharVaga(keepass keepass)
+        public Detalhar(keepass keepass)
         {
             InitializeComponent();
 
@@ -29,7 +29,7 @@ namespace ECMKeepass.Telas
             Database database = new Database();
             keepass kp = database.Pesquisar(lblTitulo.Text).FirstOrDefault();
 
-            Navigation.PushAsync(new EditarVaga(kp));
+            Navigation.PushAsync(new Editar(kp));
         }
 
         private void SalvarDados()

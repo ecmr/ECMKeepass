@@ -8,7 +8,6 @@ namespace ECMKeepass.Modelo
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public int GrupoId { get; set; }
-        public string GrupoNome { get; set; }
         public string Titulo { get; set; }
         public string Icone { get; set; }
         public string Usuario { get; set; }

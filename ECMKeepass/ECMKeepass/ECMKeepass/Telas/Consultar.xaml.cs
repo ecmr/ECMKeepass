@@ -34,7 +34,7 @@ namespace ECMKeepass.Telas
 
         public void GoMinhasSenhas(object sender, EventArgs args)
         {
-            Navigation.PushAsync(new MinhasVagasCadastradas());
+            //Navigation.PushAsync(new MinhasVagasCadastradas());
         }
 
         public void MaisDetalheAction(object sender, EventArgs args)
@@ -43,7 +43,7 @@ namespace ECMKeepass.Telas
             TapGestureRecognizer tapGest = (TapGestureRecognizer)lblDetalhe.GestureRecognizers[0];
             keepass keep = tapGest.CommandParameter as keepass;
 
-            Navigation.PushAsync(new DetalharVaga(keep));
+            Navigation.PushAsync(new Detalhar(keep));
         }
 
         public void PesquisarAction(object sender, TextChangedEventArgs args)

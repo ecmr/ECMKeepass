@@ -133,7 +133,9 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="icon.png" />
     <Content Include="icon_login.png" />
+    <Content Include="ic_bin.jpg" />
     <Content Include="ic_ecm_MKP.png" />
+    <Content Include="ic_folder_cadeado.jpg" />
     <Content Include="ic_generatorPW.jpg" />
     <Content Include="ic_newPassWord.jpg" />
     <Content Include="Properties\Default.rd.xml" />

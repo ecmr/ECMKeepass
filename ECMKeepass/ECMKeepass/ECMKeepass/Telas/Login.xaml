@@ -14,17 +14,17 @@
         <Grid Grid.Row="1" Margin="10,0,20,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Image Source="icon_login.png" HeightRequest="70" VerticalOptions="EndAndExpand"/>
-            <Entry x:Name="MailPhone" Grid.Row="1" Placeholder="Email ou Telefone" PlaceholderColor="#bababa" FontSize="16"/>
-            <Entry x:Name="PassWord" Grid.Row="2" IsPassword="True" Placeholder="Senha" PlaceholderColor="#bababa" FontSize="16"/>
-            <Switch x:Name="VisualizarSenha" Grid.Row="2" Toggled="switcher_Toggled" WidthRequest="45" HorizontalOptions="End" />
+            <Entry x:Name="MailPhone" HeightRequest="20" Grid.Row="1" Placeholder="Email ou Telefone" PlaceholderColor="#bababa" FontSize="16"/>
+            <Entry x:Name="PassWord"  HeightRequest="20" Grid.Row="2" IsPassword="True" Placeholder="Senha" PlaceholderColor="#bababa" FontSize="16"/>
+            <Switch x:Name="VisualizarSenha" Grid.Row="2" VerticalOptions="Center" Toggled="switcher_Toggled" WidthRequest="45" HorizontalOptions="End" />
             <Button x:Name="btnLogar" Text="LogIn" Clicked="Logar" BackgroundColor="#3897f0" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Grid.Row="5">
                 <Label x:Name="lblMessage" Text="" TextColor="#485992"  />

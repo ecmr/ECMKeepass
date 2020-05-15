@@ -9,15 +9,15 @@ using Xamarin.Forms.Xaml;
 namespace ECMKeepass.Telas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class EditarVaga : ContentPage
+	public partial class Editar : ContentPage
 	{
-        public EditarVaga(keepass keepass)
+        public Editar(keepass keepass)
         {
             InitializeComponent();
 
             BindingContext = keepass;
 
-            GrupoNome.Text = keepass.GrupoNome.ToString();
+           // GrupoNome.Text = keepass.GrupoNome.ToString();
             Titulo.Text = keepass.Titulo.ToString();
             Usuario.Text = keepass.Usuario.ToString();
             Senha.Text = keepass.Senha.ToString();
@@ -54,7 +54,7 @@ namespace ECMKeepass.Telas
         private void SalvarDados()
         {
             keepass keepass = new keepass();
-            keepass.GrupoNome = GrupoNome.Text;
+//            keepass.GrupoNome = GrupoNome.Text;
             keepass.Titulo = Titulo.Text;
             keepass.Usuario = Usuario.Text;
             keepass.Senha = Senha.Text;

@@ -41,6 +41,8 @@ namespace ECMKeepass.Telas
             {
                 UserAcess UA = new UserAcess() { Usuario = MailPhone.Text, Senha = PassWord.Text };
                 database.CadastroPrimeiroACesso(UA);
+                lblMessage.Text = "Bem vindo!";
+                Navigation.PushAsync(new Grupos());
             }
             else
             {

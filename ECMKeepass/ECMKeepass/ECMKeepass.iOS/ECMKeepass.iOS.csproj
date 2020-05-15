@@ -176,4 +176,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\ic_generatorPW.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_folder_cadeado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_bin.jpg" />
+  </ItemGroup>
 </Project>

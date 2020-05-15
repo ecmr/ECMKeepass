@@ -16,27 +16,40 @@ namespace ECMKeepass.Banco
             _conexao = new SQLiteConnection(dep.ObterCaminho("database.sqlite"));
             _conexao.CreateTable<keepass>();
             _conexao.CreateTable<UserAcess>();
+            _conexao.CreateTable<KeepGroup>();
         }
 
-        public List<UserAcess> ConsultarPrimeiroAcesso()
+        #region Grupo
+        public List<KeepGroup> Listar()
         {
-            return _conexao.Table<UserAcess>().ToList();
+            return _conexao.Table<KeepGroup>().ToList();
         }
-
-        public bool PequisaUsuario(UserAcess useracess)
+        public List<KeepGroup> PesquisarGroupPorParavra(string palavra)
         {
-            UserAcess user = _conexao.Table<UserAcess>().Where(ua => ua.Usuario.Contains(useracess.Usuario)).Where(ua => ua.Senha.Contains(useracess.Senha)).FirstOrDefault();
-            if (user != null)
-                return true;
-            else
-                return false;
+            return _conexao.Table<KeepGroup>().Where(k => k.GrupoNome.Contains(palavra)).ToList();
         }
-
-        public void CadastroPrimeiroACesso(UserAcess user)
+        public KeepGroup ObterKeeGroupPorId(int id)
         {
-            _conexao.Insert(user);
+            return _conexao.Table<KeepGroup>().Where(a => a.Id == id).FirstOrDefault();
+        }
+        public void CadastroGrupo(KeepGroup kg)
+        {
+            _conexao.Insert(kg);
+        }
+        public void AtualizacaoGrupo(KeepGroup kg)
+        {
+            _conexao.Update(kg);
+        }
+        public void ExclusaoGrupo(KeepGroup kg)
+        {
+            _conexao.Delete(kg);
         }
 
+
+
+        #endregion
+
+        #region Senhas
         public List<keepass> Consultar()
         {
             return _conexao.Table<keepass>().ToList();
@@ -61,5 +74,31 @@ namespace ECMKeepass.Banco
         {
             _conexao.Delete(kee);
         }
+        #endregion
+
+        #region Usuario
+        public List<UserAcess> ConsultarPrimeiroAcesso()
+        {
+            return _conexao.Table<UserAcess>().ToList();
+        }
+
+        public bool PequisaUsuario(UserAcess useracess)
+        {
+            UserAcess user = _conexao.Table<UserAcess>().Where(ua => ua.Usuario.Contains(useracess.Usuario)).Where(ua => ua.Senha.Contains(useracess.Senha)).FirstOrDefault();
+            if (user != null)
+                return true;
+            else
+                return false;
+        }
+
+        public void CadastroPrimeiroACesso(UserAcess user)
+        {
+            _conexao.Insert(user);
+        }
+        #endregion
+
+
+
+
     }
 }
