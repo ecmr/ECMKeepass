@@ -17,7 +17,8 @@ namespace ECMKeepass.Telas
 
             BindingContext = keepass;
 
-           // GrupoNome.Text = keepass.GrupoNome.ToString();
+            Database database = new Database();
+            GrupoNome.Text = database.ObterKeeGroupPorId(int.Parse(keepass.GrupoId.ToString())).GrupoNome.ToString();
             Titulo.Text = keepass.Titulo.ToString();
             Usuario.Text = keepass.Usuario.ToString();
             Senha.Text = keepass.Senha.ToString();
@@ -25,9 +26,14 @@ namespace ECMKeepass.Telas
             Comentario.Text = keepass.Comentario.ToString();
         }
 
-        void switcher_Toggled(object sender, ToggledEventArgs e)
+        //void switcher_Toggled(object sender, ToggledEventArgs e)
+        //{
+        //    Senha.IsPassword = !e.Value;
+        //}
+
+        public void Visualizar(object sender, EventArgs args)
         {
-            Senha.IsPassword = !e.Value;
+            Senha.IsPassword = !Senha.IsPassword;
         }
 
         public void GerarSenha(object sender, EventArgs args)
@@ -54,21 +60,23 @@ namespace ECMKeepass.Telas
         private void SalvarDados()
         {
             keepass keepass = new keepass();
-//            keepass.GrupoNome = GrupoNome.Text;
+            Database database = new Database();
+            KeepGroup keepGroup = database.PesquisarGroupPorParavra(GrupoNome.Text).FirstOrDefault();
+            keepass.GrupoId = keepGroup.Id;
             keepass.Titulo = Titulo.Text;
             keepass.Usuario = Usuario.Text;
             keepass.Senha = Senha.Text;
             keepass.Url = Url.Text;
             keepass.Comentario = Comentario.Text;
 
-            Database database = new Database();
+
             keepass kp = database.Pesquisar(Titulo.Text).FirstOrDefault();
             database.Exclusao(kp);
             database = null;
             database = new Database();
             database.Cadastro(keepass);
 
-            App.Current.MainPage = new NavigationPage(new Grupo(keepass));
+            Navigation.PushAsync(new Grupo(keepGroup));
         }
 
         public string NewPassWord(int tamanho, bool UpCase, bool LoCase, bool Digitos, bool SpChars)

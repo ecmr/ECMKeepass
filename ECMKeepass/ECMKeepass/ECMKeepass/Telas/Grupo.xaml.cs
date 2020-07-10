@@ -11,33 +11,34 @@ namespace ECMKeepass.Telas
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Grupo : ContentPage
 	{
-
+        KeepGroup keepGp;
         List<keepass> Lista { get; set; }
         List<keepass> Lista2 = new List<keepass>();
 
-        public Grupo (keepass keepass)
+         public Grupo (KeepGroup keepGrup)
 		{
 			InitializeComponent ();
 
-            BindingContext = keepass;
+            BindingContext = keepGrup;
+            keepGp = keepGrup;
 
             Database database = new Database();
-            //Lista = database.Consultar().Where(g => g.GrupoNome.Contains(keepass.GrupoNome)).ToList();
+            Lista = database.Consultar().Where(g => g.GrupoId == keepGrup.Id).ToList();
 
-            //foreach (keepass GroupPass in Lista)
-            //{
-            //        Lista2.Add(GroupPass);
-            //}
+            foreach (keepass item in Lista)
+            {
+                Lista2.Add(item);
+            }
 
-            //ListaSenhas.ItemsSource = null;
-            //ListaSenhas.ItemsSource = Lista2;
+            ListaSenhas.ItemsSource = null;
+            ListaSenhas.ItemsSource = Lista2;
 
-//            lblNomeGrupo.Text = keepass.GrupoNome.ToString();
+            lblNomeGrupo.Text = "Grupo: " + keepGrup.GrupoNome.ToString();
         }
 
         public void GoCadastro(object sender, EventArgs args)
         {
-            Navigation.PushAsync(new Cadastrar());
+            Navigation.PushAsync(new CadastrarKeep(keepGp));
         }
 
         public void GoMinhasSenhas(object sender, EventArgs args)

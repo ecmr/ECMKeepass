@@ -17,11 +17,20 @@ namespace ECMKeepass.Telas
             InitializeComponent();
 
             BindingContext = keepass;
+
+            Database database = new Database();
+
+            GrupoNome.Text = database.ObterKeeGroupPorId(keepass.GrupoId).GrupoNome.ToString();
         }
 
         void switcher_Toggled(object sender, ToggledEventArgs e)
         {
             Senha.IsPassword = !e.Value;
+        }
+
+        public void Visualizar(object sender, EventArgs args)
+        {
+            Senha.IsPassword = !Senha.IsPassword;
         }
 
         public void EditarCadastro(object sender, EventArgs args)

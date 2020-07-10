@@ -29,7 +29,7 @@ namespace ECMKeepass.Telas
 
         public void GoCadastro(object sender, EventArgs args)
         {
-            Navigation.PushAsync(new Cadastrar());
+            //Navigation.PushAsync(new Cadastrar());
         }
 
         public void GoMinhasSenhas(object sender, EventArgs args)

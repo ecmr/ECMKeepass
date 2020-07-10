@@ -1,0 +1,19 @@
+Android:
+   141676125689-bbsjfbgpb0h8p59mk37b18ra5h8isrsq.apps.googleusercontent.com
+   com.apps.googleusercontent.141676125689-bbsjfbgpb0h8p59mk37b18ra5h8isrsq
+IOS:
+   141676125689-31c6m4b5lhe1sj5l01v1ob3b0cicrlts.apps.googleusercontent.com
+   com.googleusercontent.apps.141676125689-31c6m4b5lhe1sj5l01v1ob3b0cicrlts
+
+GOOGLE DRIVE
+Quer usar este ID do cliente existente? Criar novo ID do cliente
+
+ECMKeepass
+ID do cliente	
+141676125689-bbsjfbgpb0h8p59mk37b18ra5h8isrsq.apps.googleusercontent.com
+Data de criação	
+9 de jul. de 2020 07:59:11
+Impressão digital do certificado de autorização	
+C3:2B:DB:69:F4:A2:4F:A5:76:EB:B1:A8:8F:D3:0C:0E:75:68:07:4B
+Nome do pacote	
+br.com.integrationit.ECMKeepass

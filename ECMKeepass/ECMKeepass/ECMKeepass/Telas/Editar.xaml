@@ -7,28 +7,22 @@
             <Button x:Name="btnEditar" Text="Salvar" Clicked="EditarCadastro" FontAttributes="Bold" BackgroundColor="LightSkyBlue" />
             <Button x:Name="btnExcluir" Text="Excluir" Clicked="ExcluirAction" BackgroundColor="PaleVioletRed" TextColor="Black" FontAttributes="Bold" />
             <StackLayout Orientation="Horizontal">
-                <Label x:Name="lblTituloEditar" Text="Título: " IsVisible="False"  WidthRequest="55" HorizontalTextAlignment="End" FontAttributes="Bold"/>
-                <Entry x:Name="Titulo" Text="{Binding Titulo}" HorizontalOptions="FillAndExpand" />
+                <Entry x:Name="Titulo" Text="{Binding Titulo}" Placeholder="Título" HorizontalOptions="FillAndExpand" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Grupo: "  WidthRequest="55" HorizontalTextAlignment="End" FontAttributes="Bold"/>
-                <Entry x:Name="GrupoNome" Text="{Binding GrupoNome}" HorizontalOptions="FillAndExpand" />
+                <Entry x:Name="GrupoNome" IsEnabled="False" Text="{Binding GrupoNome}" Placeholder="Grupo" HorizontalOptions="FillAndExpand" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Usuário: " HorizontalTextAlignment="End" FontAttributes="Bold"/>
-                <Entry x:Name="Usuario" HorizontalOptions="FillAndExpand" Text="{Binding Usuario}" />
+                <Entry x:Name="Usuario" Placeholder="Usuário" HorizontalOptions="FillAndExpand" Text="{Binding Usuario}" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Senha: " HorizontalTextAlignment="End" WidthRequest="20" FontAttributes="Bold" />
-                <Entry x:Name="Senha" Text="{Binding Senha}" IsPassword="True" HorizontalOptions="FillAndExpand" />
-                <Switch x:Name="VerSenha" Toggled="switcher_Toggled" HorizontalOptions="Center" WidthRequest="30" />
-                <ImageButton Source="ic_newPassWord.jpg" Clicked="GerarSenha" WidthRequest="30" />
+                <Entry x:Name="Senha" Text="{Binding Senha}" Placeholder="Senha" IsPassword="True" HorizontalOptions="FillAndExpand" />
+                <ImageButton Source="ic_view.png" BackgroundColor="White" Clicked="Visualizar" WidthRequest="30" HeightRequest="20" />
+                <ImageButton Source="ic_newPassWord.jpg" Clicked="GerarSenha" BackgroundColor="White" WidthRequest="30" HeightRequest="20" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Url: " HorizontalTextAlignment="End"  WidthRequest="55" FontAttributes="Bold"/>
-                <Entry x:Name="Url" Text="{Binding Url}" HorizontalOptions="FillAndExpand" />
+                <Entry x:Name="Url" Text="{Binding Url}" Placeholder="Url" HorizontalOptions="FillAndExpand" />
             </StackLayout>
-            <Label Text="   Comentario: "  FontAttributes="Bold"/>
             <Editor x:Name="Comentario" Text="{Binding Comentario}" Placeholder="Digite seu comentário"
             AutoSize="TextChanges" HeightRequest="200" MaxLength="400" IsSpellCheckEnabled="false" />
         </StackLayout>

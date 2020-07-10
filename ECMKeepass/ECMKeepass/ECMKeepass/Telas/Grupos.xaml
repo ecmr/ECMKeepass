@@ -5,8 +5,8 @@
     <ContentPage.Content>
         <StackLayout Margin="20,35,20,20">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="Keepass ECM - " FontSize="24" />
-                <Label Text="Grupos" FontSize="24" />
+                <Label Text="Keepass ECM - "  TextColor="#485992" FontAttributes="Bold" FontSize="Large" />
+                <Label Text="Grupos"  TextColor="#485992" FontAttributes="Bold" FontSize="Large" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Adicionar" Clicked="GoCadastro" />
@@ -36,7 +36,8 @@
                                 </Label>
                                 <Label x:Name="lblGrupoId" Text="Excluir" TextColor="Black" BackgroundColor="LightCyan" Grid.Column="2" VerticalTextAlignment="Center" WidthRequest="50">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="GoExcluir" CommandParameter="{Binding .}" />
+                                        <TapGestureRecognizer Tapped="OnAlertYesNoClicked" CommandParameter="{Binding .}" />
+                                        <!--GoExcluir-->
                                     </Label.GestureRecognizers>
                                 </Label>                                
                             </Grid>

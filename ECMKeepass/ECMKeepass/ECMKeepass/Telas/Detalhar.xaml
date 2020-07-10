@@ -4,34 +4,27 @@
              x:Class="ECMKeepass.Telas.Detalhar">
     <ContentPage.Content>
         <StackLayout Margin="10,0,0,0" Padding="20">
-            <Label x:Name="lblTitulo" Text="{Binding Titulo}" FontSize="18" HorizontalOptions="Center" FontAttributes="Bold" TextColor="SkyBlue" />
+            <Label x:Name="lblTitulo" Text="{Binding Titulo}"  TextColor="#485992" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" />
             <Button x:Name="btnEditar" Text="Editar" Clicked="EditarCadastro" FontAttributes="Bold" BackgroundColor="LightSkyBlue" />
             <StackLayout Orientation="Horizontal">
-                <Label x:Name="lblTituloEditar" Text="Título: " IsVisible="False"  WidthRequest="55" HorizontalTextAlignment="End" FontAttributes="Bold"/>
-                <Entry x:Name="Titulo" IsVisible="False" Text="{Binding Titulo}" HorizontalOptions="FillAndExpand" />
+                <Entry x:Name="Titulo" IsVisible="False" Placeholder="Título" Text="{Binding Titulo}" HorizontalOptions="FillAndExpand" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Grupo: "  WidthRequest="55" HorizontalTextAlignment="End" FontAttributes="Bold"/>
-                <Entry x:Name="GrupoNome" IsEnabled="False" Text="{Binding GrupoNome}" HorizontalOptions="FillAndExpand" />
+                <Entry x:Name="GrupoNome" Placeholder="None do Grupo" IsEnabled="False" Text="{Binding GrupoNome}" HorizontalOptions="FillAndExpand" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Usuário: " HorizontalTextAlignment="End" FontAttributes="Bold"/>
-                <Entry x:Name="Usuario" HorizontalOptions="FillAndExpand" IsEnabled="False" Text="{Binding Usuario}" />
+                <Entry x:Name="Usuario" Placeholder="Usuário" HorizontalOptions="FillAndExpand" IsEnabled="False" Text="{Binding Usuario}" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Senha: " HorizontalTextAlignment="End" WidthRequest="55" FontAttributes="Bold" />
-                <Entry x:Name="Senha" Text="{Binding Senha}" IsEnabled="False" IsPassword="True" HorizontalOptions="FillAndExpand" />
-                <Switch x:Name="VisualizarSenha" Toggled="switcher_Toggled" WidthRequest="45" />
+                <Entry x:Name="Senha" Placeholder="Senha" Text="{Binding Senha}" IsEnabled="False" IsPassword="True" HorizontalOptions="FillAndExpand" />
+                <ImageButton Source="ic_view.png" Clicked="Visualizar" WidthRequest="30" BackgroundColor="White" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Url: " HorizontalTextAlignment="End"  WidthRequest="55" FontAttributes="Bold"/>
-                <Entry x:Name="Url" IsEnabled="False" Text="{Binding Url}" HorizontalOptions="FillAndExpand" />
+                <Entry x:Name="Url" Placeholder="Url" IsEnabled="False" Text="{Binding Url}" HorizontalOptions="FillAndExpand" />
             </StackLayout>
             <Label Text="   Comentario: "  FontAttributes="Bold"/>
-            <!--<Entry x:Name="Comentario" IsEnabled="False" Text="{Binding Comentario}" HeightRequest="200"  />-->
             <Editor x:Name="Comentario" IsEnabled="False" Text="{Binding Comentario}" Placeholder="Digite seu comentário"
             AutoSize="TextChanges" HeightRequest="200" MaxLength="400" IsSpellCheckEnabled="false" />
-            <!-- IsTextPredictionEnabled="false" /> -->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

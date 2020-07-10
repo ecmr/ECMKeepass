@@ -4,8 +4,8 @@
              x:Class="ECMKeepass.Telas.Grupo">
     <ContentPage.Content>
         <StackLayout Margin="20,35,20,20">
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Keepass ECM" FontSize="24" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Keepass ECM"  TextColor="#485992" FontAttributes="Bold" FontSize="Large" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Adicionar" Clicked="GoCadastro" />
@@ -27,7 +27,7 @@
                                     <RowDefinition Height="Auto" ></RowDefinition>
                                     <RowDefinition Grid.ColumnSpan="2" Height="Auto" ></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image Source="ic_folder_cadeado.jpg" Grid.Column="0" WidthRequest="20" HeightRequest="20" />
+                                <Image Source="ic_key.png" Grid.Column="0" WidthRequest="20" HeightRequest="20" />
                                 <Image Source="icon.png" Grid.Column="1" HorizontalOptions="Center" />
                                 <Label Text="{Binding Titulo}"  Grid.Column="1">
                                     <Label.GestureRecognizers>
